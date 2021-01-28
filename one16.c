@@ -7,5 +7,5 @@ int main(void)
 
 void triangleLB(int n)
 {
-    
+    fafa
 }
