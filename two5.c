@@ -4,6 +4,8 @@
 void ary_reverse(int a[], int n);
 void print_stat(int a[], int n);
 
+#define swap(type, x, y) do{ type t = x; x = y; y = t;} while(0)
+
 int main(void)
 {
     int *x;
@@ -28,16 +30,19 @@ int main(void)
 
 void ary_reverse(int a[], int n)
 {
-    for (int i = 0, t = 0; i < n/2; i++)
-    {
-        print_stat(a, n);
-        printf("a[%i]와 a[%i]를 교환합니다.\n", i, n - 1 - i);
-        t = a[i];
-        a[i] = a[n - 1 - i];
-        a[n - 1 - i] = t;
-    }
-    print_stat(a, n);
-    printf("역순 정렬을 종료합니다.\n");
+    // for (int i = 0, t = 0; i < n/2; i++)
+    // {
+    //     print_stat(a, n);
+    //     printf("a[%i]와 a[%i]를 교환합니다.\n", i, n - 1 - i);
+    //     t = a[i];
+    //     a[i] = a[n - 1 - i];
+    //     a[n - 1 - i] = t;
+    // }
+    // print_stat(a, n);
+    // printf("역순 정렬을 종료합니다.\n");
+    
+    for (int i = 0; i < n/2; i++)
+        swap(int, a[i], a[n-i-1]);
     
 }
 

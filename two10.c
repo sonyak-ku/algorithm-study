@@ -24,8 +24,14 @@ int main(void)
         printf("%i 번째 숫자: ", i + 1);
         scanf("%i", (ary + i));
     }           // 배열 a  개수 정하고, 숫자 넣는 것.
+    printf("셔플되기 전의 배열: ");
+    for (int i = 0; i < number; i++)
+    {
+        printf("%i ",ary[i]);
+    }
+    printf("\n");
 
-
+    shuffle(ary, number);
  
     
 }
@@ -35,13 +41,23 @@ void shuffle(int a[], int n)
     
     srand(time(NULL));
     int b,c;
+    
+    for (int i = 0, tmp = 0; i < n ; i++)
+    {
+        b = rand() % n;
+        c = rand() % n;
 
-    b = rand() %n;
-    c = rand() %n;
+        tmp = a[b];
+        a[b] = a[c];
+        a[c] = tmp;
 
-    int tmp =0;
-    tmp = a[b];
-    a[b] = a[c];
-    a[c] = tmp;
+    }
+    printf("셔플된 후의 배열: ");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%i ",a[i]);
+    }
+    printf("\n");
+
 
 }
